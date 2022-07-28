@@ -83,10 +83,10 @@
         <div class="container">
             <h2 class="title title_left">Получите беспланую консультацию <br>по подбору пульсометра</h2>
             <div class="consultation__descr">Просто заполните форму заявки <br>и мы перезвоним вам втечении 10 минут</div>
-            <form class="feed-form" action="#">
-                <input name="name" required type="text" placeholder="Ваше имя">
-                <input name="phone" required type="number" placeholder="Ваше телефон">
-                <input name="email" required type="email" placeholder="Ваше E-mail">
+            <form class="feed-form" id="consultation-form" action="#">
+                <input name="name" type="text" placeholder="Ваше имя">
+                <input name="phone" placeholder="Ваше телефон">
+                <input name="email" type="email" placeholder="Ваше E-mail">
 
                 <button class="button button_submit">заказать консультацию</button>
             </form>
@@ -414,7 +414,7 @@
             <div class="modal__descr">и мы перезвоним вам в течение 10 минут</div>
             <form class="feed-form feed-form_mt25" action="#">
                 <input name="name" required type="text" placeholder="Ваше имя">
-                <input name="phone" required type="number" placeholder="Ваше телефон">
+                <input name="phone" required placeholder="Ваше телефон">
                 <input name="email" required type="email" placeholder="Ваше E-mail">
 
                 <button class="button button_submit">заказать консультацию</button>
@@ -427,7 +427,7 @@
             <div class="modal__descr">Пульсометр Polar FT1</div>
             <form class="feed-form feed-form_mt25" action="#">
                 <input name="name" required type="text" placeholder="Ваше имя">
-                <input name="phone" required type="number" placeholder="Ваше телефон">
+                <input name="phone" required placeholder="Ваше телефон">
                 <input name="email" required type="email" placeholder="Ваше E-mail">
 
                 <button class="button button_submit">Купить</button>
@@ -443,12 +443,16 @@
 
     </div>
 
-
+    <a href="#" class="pageup">
+        <img src="icon/circle-chevron-up-solid.svg" alt="up">
+    </a>
 
     <script src="https://kit.fontawesome.com/73360bafae.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/slick.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 

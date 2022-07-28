@@ -29,12 +29,12 @@ $(document).ready(function() {
     function toggleSlide(item) {
         $(item).each(function(i) {
             $(this).on('click', function(e) {
-                e.preventDefault()
+                e.preventDefault();
                 $('.catalog-item__front').eq(i).toggleClass('catalog-item__front_active');
                 $('.catalog-item__back').eq(i).toggleClass('catalog-item__back_active');
             });
         });
-    };
+    }
 
     toggleSlide('.catalog-item__link');
     toggleSlide('.catalog-item__backlink');
@@ -54,5 +54,61 @@ $(document).ready(function() {
             $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
             $('.overlay #order').fadeIn('slow');
         });
+    });
+    // Jqueryvalidate
+
+
+    function validateForms(form) {
+        $(form).validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                phone: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "Пожалуйста введите своё имя!",
+                    minlength: jQuery.validator.format("Введите {0} символов!")
+                },
+                phone: "Пожаллуйста введите свой номер телефона",
+                email: {
+                    required: "Пожалуйста введите адрес электронной почты",
+                    email: "Неправильно введён адрес почты"
+                }
+            }
+        });
+    }
+    validateForms('#consultation-form');
+    validateForms('#consultation form');
+    validateForms('#order form');
+
+
+    //MaskedInput
+
+    $('input[name=phone]').mask("+7 (999) 999-99-99");
+
+
+
+    // Mail to
+    $('form').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find("input").val("");
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanks').fadeIn('slow');
+
+            $('form').trigger('reset');
+        });
+        return false;
     });
 });
